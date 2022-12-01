@@ -6,6 +6,7 @@ SendMode Input ; Recommended for new scripts due to its superior speed and relia
 SetWorkingDir %A_ScriptDir% ; Ensures a consistent starting directory.
 ; Ensures CapsLock is alwaysoff, this means its just a hotkey
 SetCapsLockState, AlwaysOff
+DetectHiddenWindows, On
 toggle:=0
 
 SwitchToWindowsTerminal() {
