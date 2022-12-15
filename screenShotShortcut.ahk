@@ -29,7 +29,7 @@ SwitchToWindowsTerminal() {
   }
   ; Else it's not already open, so launch it.
   else {
-    Run, wt
+    Run, "C:\Program Files\WindowsApps\Microsoft.WindowsTerminal_1.15.3466.0_x64__8wekyb3d8bbwe\wt.exe"
   }
 }
 
@@ -75,8 +75,13 @@ RShift & c::!F4
 
 ; Shortcut for autocomplete powershell
 Rshift & a::Right
-; Shortcut to minimize and restore active window
 
+; Shortcut for clearing the terminal
+Rshift & l::
+Send ^l
+return
+
+; Shortcut to minimize and restore active window
 #Down::
   if (toggle:=!toggle)
     WinMinimize, % "ahk_id " _hwnd := WinExist("A")
