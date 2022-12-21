@@ -74,7 +74,10 @@ return
 RShift & c::!F4
 
 ; Shortcut for autocomplete powershell
-Rshift & a::Right
+Rshift & a::
+Send {RShift up}
+Send {Right}
+return
 
 ; Shortcut for clearing the terminal
 Rshift & l::
