@@ -5,16 +5,12 @@ $prevPwd = $PWD; Set-Location -ErrorAction Stop -LiteralPath $PSScriptRoot
 
 try
 {
-  #First remove the exe and kill the process
+  #First kill the process
   kall screen*
   kall AutoHotkey*
-  rm "./screenShotShortcut.exe"
-  echo "Previous instance killed, removed exe"
-  # The location of this command is located in the ~/.config/powershell/user_profile.ps1
-  ahk2exe /in "./screenShotShortcut.ahk" /out "./screenShotShortcut.exe" /silent
-  echo "Compiled new instance"
-  sudo "C:\Users\gersi\Desktop\scripts\screenShotShortcut.exe"
-  echo "New instance running!" 
+  Write-Output "Previous instance killed"
+  sudo ".\screenShotShortcut.ahk"
+  Write-Output "New instance running!" 
 } finally
 {
   # Restore the previous location.
