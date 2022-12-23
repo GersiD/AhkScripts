@@ -50,6 +50,12 @@ SwitchToWindowsTerminal() {
   SC15D & Left::^PgUp
 #IfWinActive
 
+; Cool shortcut to get back to vim from
+; SumatraPDF :)
+#IfWinActive, ahk_exe SumatraPDF.exe
+b::SwitchToWindowsTerminal()
+#IfWinActive
+
 ; Cool windows shortcuts
 #]::#t
 #[::#+t
