@@ -56,6 +56,10 @@ SwitchToWindowsTerminal() {
 b::SwitchToWindowsTerminal()
 #IfWinActive
 
+; Cool shortcut for j k when alt-tabbing
+LWin & j::ShiftAltTab
+LWin & k::AltTab
+
 ; Cool windows shortcuts
 #]::#t
 #[::#+t
