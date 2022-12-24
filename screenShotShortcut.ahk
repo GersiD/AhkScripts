@@ -54,6 +54,7 @@ SwitchToWindowsTerminal() {
 ; SumatraPDF :)
 #IfWinActive, ahk_exe SumatraPDF.exe
 b::SwitchToWindowsTerminal()
+Space::SwitchToWindowsTerminal()
 #IfWinActive
 
 ; Cool shortcut for j k when alt-tabbing
