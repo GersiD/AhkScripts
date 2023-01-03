@@ -61,6 +61,9 @@ Space::SwitchToWindowsTerminal()
 LWin & j::ShiftAltTab
 LWin & k::AltTab
 
+; Maximize windows, AutoHotkeyism A is the active window
+LWin & Up::WinMaximize, A
+
 ; Cool windows shortcuts
 #]::#t
 #[::#+t
