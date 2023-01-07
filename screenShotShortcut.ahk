@@ -82,20 +82,24 @@ return
 RShift & e::
 Send {RShift up}
 Send {Esc}
+Send {RShift up}
 return
 
 ; Shorcut to close a window
 RShift & c::!F4
 
 ; Shortcut for autocomplete powershell
-Rshift & a::
+RShift & a::
 Send {RShift up}
 Send {Right}
+Send {RShift up}
 return
 
 ; Shortcut for clearing the terminal
-Rshift & l::
+RShift & l::
+Send {RShift up}
 Send ^l
+Send {RShift up}
 return
 
 ; Shortcut to minimize and restore active window
