@@ -29,7 +29,7 @@ SwitchToWindowsTerminal() {
   }
   ; Else it's not already open, so launch it.
   else {
-    Run, "C:\Program Files\WindowsApps\Microsoft.WindowsTerminal_1.15.3466.0_x64__8wekyb3d8bbwe\wt.exe"
+    Run, "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\PowerShell\PowerShell 7 (x64).lnk"
   }
 }
 
@@ -68,7 +68,8 @@ LWin & Up::WinMaximize, A
 #]::#t
 #[::#+t
 #s::Send #+s
-CapsLock::Send #{vkC0sc029}
+RAlt::Send #{vkC0sc029}
+CapsLock::Ctrl
 ; Hotkey to use windows key + w to launch/restore the Windows Terminal.
 #w::SwitchToWindowsTerminal()
 F5::KeyHistory
@@ -80,9 +81,9 @@ F5::KeyHistory
 return
 
 RShift & e::
-Send {RShift up}
+Send {blind}{RShift up}
 Send {Esc}
-Send {RShift up}
+Send {blind}{RShift up}
 return
 
 ; Shorcut to close a window
@@ -90,16 +91,16 @@ RShift & c::!F4
 
 ; Shortcut for autocomplete powershell
 RShift & a::
-Send {RShift up}
+Send {blind}{RShift up}
 Send {Right}
-Send {RShift up}
+Send {blind}{RShift up}
 return
 
 ; Shortcut for clearing the terminal
 RShift & l::
-Send {RShift up}
+Send {blind}{RShift up}
 Send ^l
-Send {RShift up}
+Send {blind}{RShift up}
 return
 
 ; Shortcut to minimize and restore active window
