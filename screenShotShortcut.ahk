@@ -81,9 +81,7 @@ F5::KeyHistory
 return
 
 RShift & e::
-Send {blind}{RShift up}
-Send {Esc}
-Send {blind}{RShift up}
+  Send {Esc}
 return
 
 ; Shorcut to close a window
