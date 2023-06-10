@@ -10,7 +10,7 @@ DetectHiddenWindows, On
 toggle:=0
 
 SwitchToWindowsTerminal() {
-  windowHandleId := WinExist("ahk_exe WindowsTerminal.exe")
+  windowHandleId := WinExist("PowerShell 7")
   windowExistsAlready := windowHandleId > 0
 
   ; If the Windows Terminal is already open, determine if we should put it in focus or minimize it.
@@ -29,7 +29,7 @@ SwitchToWindowsTerminal() {
   }
   ; Else it's not already open, so launch it.
   else {
-    Run, "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\PowerShell\PowerShell 7 (x64).lnk"
+    Run, "C:\Program Files\WindowsApps\Microsoft.WindowsTerminal_1.16.10262.0_x64__8wekyb3d8bbwe\wt.exe"
   }
 }
 
@@ -43,9 +43,9 @@ SwitchToWindowsTerminal() {
 
 #IfWinActive, ahk_exe msedge.exe
   ^+p::^+Space
-  RShift & s::Send ^e
+  SC070 & s::Send ^e
   ; Search in top of window
-  RShift & t::^a ; Open tabs dropdown
+  SC070 & t::^a ; Open tabs dropdown
   SC15D & Right::^PgDn
   SC15D & Left::^PgUp
 #IfWinActive
@@ -77,28 +77,31 @@ F5::KeyHistory
 ^+c::
   Send, ^c
   Sleep, 10
-  run www.duckduckgo.com/?q=%Clipboard%
+  run www.bing.com/?q=%Clipboard%
 return
 
-RShift & e::
+SC070 & e::
   Send {Esc}
 return
 
 ; Shorcut to close a window
-RShift & c::!F4
+SC070 & c::!F4
 
 ; Shortcut for autocomplete powershell
-RShift & a::
-Send {blind}{RShift up}
-Send {Right}
-Send {blind}{RShift up}
+; Also used in vim for copilot accept
+SC070 & a::
+  Send {Right}
 return
 
 ; Shortcut for clearing the terminal
-RShift & l::
-Send {blind}{RShift up}
-Send ^l
-Send {blind}{RShift up}
+SC070 & l::
+  Send ^l
+return
+
+; Shortcut for opening terminal in neovim (F7)
+; Note SC070 is Right shift
+SC070 & `::
+  Send {F7}
 return
 
 ; Shortcut to minimize and restore active window
