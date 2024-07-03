@@ -10,7 +10,7 @@ DetectHiddenWindows, On
 toggle:=0
 
 SwitchToWindowsTerminal() {
-  windowHandleId := WinExist("PowerShell 7")
+  windowHandleId := WinExist("pwsh")
   windowExistsAlready := windowHandleId > 0
 
   ; If the Windows Terminal is already open, determine if we should put it in focus or minimize it.
@@ -29,7 +29,7 @@ SwitchToWindowsTerminal() {
   }
   ; Else it's not already open, so launch it.
   else {
-    Run, "C:\Program Files\WindowsApps\Microsoft.WindowsTerminal_1.16.10262.0_x64__8wekyb3d8bbwe\wt.exe"
+    Run, "wt"
   }
 }
 
@@ -76,11 +76,15 @@ F5::KeyHistory
 
 ^+c::
   Send, ^c
-  Sleep, 10
+  Sleep, 50
   run www.bing.com/?q=%Clipboard%
 return
 
 SC070 & e::
+  Send {Esc}
+return
+
+RShift & e::
   Send {Esc}
 return
 
@@ -93,6 +97,10 @@ SC070 & a::
   Send {Right}
 return
 
+RShift & a::
+  Send {Right}
+return
+
 ; Shortcut for clearing the terminal
 SC070 & l::
   Send ^l
@@ -102,6 +110,11 @@ return
 ; Note SC070 is Right shift
 SC070 & `::
   Send {F7}
+return
+
+; Shortcut for searching for a question
+SC070 & q::
+  SendPlay Browser_Home
 return
 
 ; Shortcut to minimize and restore active window
